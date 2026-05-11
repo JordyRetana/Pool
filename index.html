@@ -3,44 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <title>Pool</title>
+  <title>Pool Royale</title>
 </head>
-
 <body>
-  <div class="fade"></div>
-  <div class="title">the Pool Table<small>trigonometry is hard</small></div>
+  <div class="ambient-glow"></div>
 
-  <div class="controls">
-    <button class="reset">Reset</button>
-  </div>
+  <main class="app-shell">
+    <section class="topbar">
+      <div>
+        <p class="eyebrow">Arcade Billiards</p>
+        <h1>Pool Royale</h1>
+        <p class="subtitle">A cleaner, richer and more realistic pool table with smoother shots, ball collisions and scratch recovery.</p>
+      </div>
 
-  <div class="table">
-    <div class="table__pockets">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
+      <div class="hud">
+        <div class="hud__card">
+          <span>Shots</span>
+          <strong id="shotCount">0</strong>
+        </div>
+        <div class="hud__card">
+          <span>Pocketed</span>
+          <strong id="pocketedCount">0 / 15</strong>
+        </div>
+        <div class="hud__card hud__card--status">
+          <span>Status</span>
+          <strong id="statusText">Aim and drag from the cue ball</strong>
+        </div>
+      </div>
+    </section>
 
-    <div class="table__inner">
-      <div class="ball primary"></div>
-      <div class="ball racked num-1"></div>
-      <div class="ball racked num-2"></div>
-      <div class="ball racked num-3"></div>
-      <div class="ball racked num-4"></div>
-      <div class="ball racked num-5"></div>
-      <div class="ball racked num-6"></div>
-      <div class="ball racked num-7"></div>
-      <div class="ball racked num-8"></div>
-      <div class="ball racked num-9"></div>
-      <div class="ball racked num-10"></div>
-      <div class="ball racked num-11"></div>
-      <div class="ball racked num-12"></div>
-      <div class="ball racked num-13"></div>
-      <div class="ball racked num-14"></div>
-      <div class="ball racked num-15"></div>
-    </div>
+    <section class="game-panel">
+      <div class="controls">
+        <button class="reset">Reset Rack</button>
+        <div class="legend">
+          <span><i class="dot dot--solid"></i> Solid</span>
+          <span><i class="dot dot--stripe"></i> Stripe</span>
+          <span><i class="dot dot--eight"></i> 8 Ball</span>
+        </div>
+      </div>
 
-    <div class="table__sunk"></div>
-  </div> 
+      <div class="table-wrap">
+        <div class="table" aria-label="Pool table">
+          <div class="table__rail-shadow"></div>
+          <div class="table__pockets">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+
+          <div class="table__inner">
+            <div class="table__surface-details">
+              <span class="diamond diamond--1"></span>
+              <span class="diamond diamond--2"></span>
+              <span class="diamond diamond--3"></span>
+              <span class="diamond diamond--4"></span>
+              <span class="diamond diamond--5"></span>
+              <span class="diamond diamond--6"></span>
+            </div>
+
+            <div class="head-string"></div>
+            <div class="spot spot--head"></div>
+            <div class="spot spot--foot"></div>
+            <div class="aim-line"></div>
+            <div class="cue-stick"></div>
+
+            <div class="ball primary cue" data-ball="cue"></div>
+            <div class="ball num-1" data-ball="1"></div>
+            <div class="ball num-2" data-ball="2"></div>
+            <div class="ball num-3" data-ball="3"></div>
+            <div class="ball num-4" data-ball="4"></div>
+            <div class="ball num-5" data-ball="5"></div>
+            <div class="ball num-6" data-ball="6"></div>
+            <div class="ball num-7" data-ball="7"></div>
+            <div class="ball num-8" data-ball="8"></div>
+            <div class="ball num-9" data-ball="9"></div>
+            <div class="ball num-10" data-ball="10"></div>
+            <div class="ball num-11" data-ball="11"></div>
+            <div class="ball num-12" data-ball="12"></div>
+            <div class="ball num-13" data-ball="13"></div>
+            <div class="ball num-14" data-ball="14"></div>
+            <div class="ball num-15" data-ball="15"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tray-panel">
+        <div>
+          <p class="tray-title">Pocketed balls</p>
+          <p class="tray-subtitle">Sunk object balls stay here. Cue ball scratches respawn automatically.</p>
+        </div>
+        <div class="table__sunk"></div>
+      </div>
+    </section>
+  </main>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="main.js"></script>
